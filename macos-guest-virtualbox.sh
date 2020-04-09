@@ -672,7 +672,9 @@ print_dimly "stage: configure_vm"
 VBoxManage modifyvm "${vm_name}" --cpus "${cpu_count}" --memory "${memory_size}" \
  --vram "${gpu_vram}" --pae on --boot1 none --boot2 none --boot3 none \
  --boot4 none --firmware efi --rtcuseutc on --usbxhci on --chipset ich9 \
- --mouse usbtablet --keyboard usb --audiocontroller hda --audiocodec stac9221
+ --mouse usbtablet --keyboard usb --audiocontroller hda --audiocodec stac9221 \
+ --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff \
+ --cpu-profile "Intel Core i7-6700K"
 
 VBoxManage setextradata "${vm_name}" \
  "VBoxInternal2/EfiGraphicsResolution" "${resolution}"
